@@ -6,12 +6,23 @@
 #define PACMAN_NODESGENERATOR_H
 
 #include "Node.h"
+#include "SmallFood.h"
+#include "BigFood.h"
+#include "SpecialFood.h"
+#include "Tunnel.h"
 #include <SFML/Graphics.hpp>
 
+
 class NodesGenerator {
+	const int rows;
+	const int collumns;
+	const int distance;
+	int **tab; 
+	void initializeMapScheme();
 public:
-	NodesGenerator( std::vector<Node> & nodes, bool ** tab, int rows, int collumns, int distance, sf::Vector2f leftUpCorner ); //distance - liczba pixeli pomiedzy wezlami
-	//Tablica musi miec wartosci false na krawedziach tablicy
+	NodesGenerator( std::vector<Node*> & nodes, std::vector<SmallFood*> & smallFoods, std::vector<BigFood*> & bigFoods, std::vector<SpecialFood*> & specialFoods, 
+	std::vector<Tunnel*> & tunnels, sf::Vector2f leftUpCorner ); 
+	~NodesGenerator();
 };
 
 

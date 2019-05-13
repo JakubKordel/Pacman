@@ -10,35 +10,35 @@ Player::Player( const sf::Vector2f & vector ) : DynamicObject( vector ) {
 }
 
 
-void Player::move( std::vector<Node> & nodes ){
+void Player::move( std::vector<Node*> & nodes ){
 	for ( int i = 0; i < nodes.size() ; ++i ){
-		Node & n = nodes[i];
+		Node * n = nodes[i];
 		float catchValue = 0.51*speedValue;
-		if ( n.getPosition().x - getPosition().x > -catchValue && n.getPosition().x - getPosition().x < catchValue && n.getPosition().y - getPosition().y > -catchValue && n.getPosition().y - getPosition().y < catchValue ){
-			if ( !n.isEaten ){
-				n.isEaten = true;
-				n.setFillColor( sf::Color::Blue);	
-			}
-			setPosition( n.getPosition() );
+		if ( n ->getPosition().x - getPosition().x > -catchValue && n ->getPosition().x - getPosition().x < catchValue && n ->getPosition().y - getPosition().y > -catchValue && n ->getPosition().y - getPosition().y < catchValue ){
+			//if ( !n.isEaten ){
+			//	n.isEaten = true;
+			//	n.setFillColor( sf::Color::Blue);	
+			//}
+			setPosition( n -> getPosition() );
 			bool flag = false;
 			switch ( lastWantedDirection ){
 			  case UP:
-				if ( n.up ){ changeMovement( UP );
+				if ( n -> up ){ changeMovement( UP );
 				flag = true;
 				}
 				break;
 			  case DOWN:
-				if ( n.down ){ changeMovement( DOWN );
+				if ( n -> down ){ changeMovement( DOWN );
 					flag = true;
 				}
 				break;
 			  case LEFT:
-				if ( n.left ){ changeMovement( LEFT );
+				if ( n -> left ){ changeMovement( LEFT );
 					flag = true;
 				}
 				break;
 			  case RIGHT:
-				if ( n.right ){ changeMovement( RIGHT );
+				if ( n -> right ){ changeMovement( RIGHT );
 					flag = true;
 				}
 				break;
@@ -46,16 +46,16 @@ void Player::move( std::vector<Node> & nodes ){
 			if ( flag == false ) {
 				switch ( movement ){
 			  		case UP:
-						if ( !n.up ) changeMovement( NONE );
+						if ( !n ->up ) changeMovement( NONE );
 						break;
 			 		 case DOWN:
-						if ( !n.down ) changeMovement( NONE );
+						if ( !n ->down ) changeMovement( NONE );
 						break;
 			  		case LEFT:
-						if ( !n.left ) changeMovement( NONE );
+						if ( !n ->left ) changeMovement( NONE );
 						break;
 			  		case RIGHT:
-						if ( !n.right ) changeMovement( NONE );
+						if ( !n ->right ) changeMovement( NONE );
 						break;
 				}
 				

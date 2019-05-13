@@ -13,13 +13,10 @@ public:
 	const bool down;
 	const bool left;
 	const bool right;
-	//const int x; // 
-	//const int y; //x, y - okresla pozycje na mapie wzgledem innych wezlow ! Nie sa to wspolrzedne w pixelach !
 
 	Node ( sf::Vector2f vector, bool u, bool d, bool l, bool r );
 
-	bool isFood;
-	bool isEaten;
+	virtual void visit(){}
 };
 
 

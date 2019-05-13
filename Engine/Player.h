@@ -16,7 +16,7 @@ public:
 
 	Direction lastWantedDirection;
 	Player( const sf::Vector2f & vector );
-	void move( std::vector<Node> & nodes ); 
+	void move( std::vector<Node*> & nodes ); 
 };
 
 
