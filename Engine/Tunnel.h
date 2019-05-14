@@ -7,11 +7,17 @@
 
 #include "Node.h"
 #include <SFML/Graphics.hpp>
+#include "DynamicObject.h"
 
 class Tunnel : public Node {
 
 public:
-	Tunnel( sf::Vector2f vector, bool u, bool d, bool l, bool r );
+	Tunnel( sf::Vector2f vector, bool u, bool d, bool l, bool r);
+	
+	std::vector<DynamicObject*> objects;
+
+	DynamicObject::Direction direction ;
+	void visit();
 };
 
 

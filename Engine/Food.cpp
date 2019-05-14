@@ -4,4 +4,6 @@
 
 #include "Food.h"
 
-Food::Food( sf::Vector2f vector, bool u, bool d, bool l, bool r ) : Node( vector, u, d, l, r )  {}
+Food::Food( sf::Vector2f vector, bool u, bool d, bool l, bool r ) : Node( vector, u, d, l, r )  {
+	isEaten = false;
+}

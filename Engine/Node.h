@@ -7,16 +7,31 @@
 
 #include <SFML/Graphics.hpp>
 
+class NodesGenerator;
+
 class Node : public sf::RectangleShape {
+	friend class NodesGenerator;
 public:
 	const bool up;
 	const bool down;
 	const bool left;
 	const bool right;
 
-	Node ( sf::Vector2f vector, bool u, bool d, bool l, bool r );
+private:
+	
+	Node * nodeUp;
+	Node * nodeDown;
+	Node * nodeLeft;
+	Node * nodeRight;
 
+public:
+	Node ( sf::Vector2f vector, bool u, bool d, bool l, bool r );
 	virtual void visit(){}
+
+	Node * getNodeUp();
+	Node * getNodeDown();
+	Node * getNodeLeft();
+	Node * getNodeRight();
 };
 
 

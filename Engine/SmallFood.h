@@ -13,6 +13,8 @@ class SmallFood : public Food {
 public:
 	SmallFood( sf::Vector2f vector, bool u, bool d, bool l, bool r );
 
+	void visit();
+
 };
 
 

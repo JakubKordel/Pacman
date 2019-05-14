@@ -7,7 +7,14 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "Node.h"
+
+class Tunnel;
+
 class DynamicObject : public sf::RectangleShape {
+
+friend class Tunnel;
+
 public:
 	enum Direction { UP, DOWN, LEFT, RIGHT, NONE };
 
@@ -15,11 +22,14 @@ protected:
 	Direction movement; 
 	sf::Vector2f speed;
 	float speedValue; // > 0 
- 	
+
+ 	Node * isInNode( std::vector<Node*> & nodes );
+	Node * lastNode;
 public:
 	DynamicObject( const sf::Vector2f & vector );
 	void move(); 	
 	void changeMovement( const Direction & direction );
+	
 };
 
 
