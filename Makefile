@@ -1,8 +1,8 @@
 CFLAGS=-Wall -pedantic -std=c++11
 SFML=-lsfml-graphics -lsfml-window -lsfml-system
 
-compile: main.o ./Engine/Node.o ./Engine/Node.h ./Engine/DynamicObject.o ./Engine/DynamicObject.h ./Engine/Player.o ./Engine/Player.h ./Engine/NodesGenerator.o ./Engine/NodesGenerator.h ./Engine/Food.o ./Engine/Food.h ./Engine/SmallFood.o ./Engine/SmallFood.h ./Engine/BigFood.o ./Engine/BigFood.h ./Engine/SpecialFood.o ./Engine/SpecialFood.h ./Engine/Tunnel.o ./Engine/Tunnel.h
-	g++ $(CFLAGS) $(SFML) main.o ./Engine/Node.o ./Engine/DynamicObject.o  ./Engine/Player.o ./Engine/NodesGenerator.o ./Engine/Food.o ./Engine/SmallFood.o ./Engine/BigFood.o ./Engine/SpecialFood.o ./Engine/Tunnel.o -o Pacman
+compile: main.o ./Engine/Node.o ./Engine/Node.h ./Engine/DynamicObject.o ./Engine/DynamicObject.h ./Engine/Player.o ./Engine/Player.h ./Engine/NodesGenerator.o ./Engine/NodesGenerator.h ./Engine/Food.o ./Engine/Food.h ./Engine/SmallFood.o ./Engine/SmallFood.h ./Engine/BigFood.o ./Engine/BigFood.h ./Engine/SpecialFood.o ./Engine/SpecialFood.h ./Engine/Tunnel.o ./Engine/Tunnel.h ./Engine/Ghost.o ./Engine/Ghost.h ./Engine/Blinky.o ./Engine/Blinky.h ./Engine/Pinky.o ./Engine/Pinky.h
+	g++ $(CFLAGS) $(SFML) main.o ./Engine/Node.o ./Engine/DynamicObject.o  ./Engine/Player.o ./Engine/NodesGenerator.o ./Engine/Food.o ./Engine/SmallFood.o ./Engine/BigFood.o ./Engine/SpecialFood.o ./Engine/Tunnel.o ./Engine/Ghost.o ./Engine/Blinky.o ./Engine/Pinky.o -o Pacman
 
 main.o: main.cpp 
 	g++ -c $(CFLAGS) main.cpp
@@ -33,6 +33,15 @@ SpecialFood.o: ./Engine/SpecialFood.cpp ./Engine/SpecialFood.h
 
 Tunnel.o: ./Engine/Tunnel.cpp ./Engine/Tunnel.h
 	g++ -c $(CFLAGS) ./Engine/Tunnel.cpp
+
+Ghost.o: ./Engine/Ghost.cpp ./Engine/Ghost.h
+	g++ -c $(CFLAGS) ./Engine/Ghost.cpp
+
+Blinky.o: ./Engine/Ghost.cpp ./Engine/Blinky.h
+	g++ -c $(CFLAGS) ./Engine/Blinky.cpp
+
+Pinky.o: ./Engine/Ghost.cpp ./Engine/Blinky.h
+	g++ -c $(CFLAGS) ./Engine/Pinky.cpp
 
 debug: 
 	g++ -g $(CFLAGS) $(SFML) main.cpp ./Engine/Node.cpp ./Engine/DynamicObject.cpp  ./Engine/Player.cpp ./Engine/NodesGenerator.cpp ./Engine/Food.cpp ./Engine/SmallFood.cpp ./Engine/BigFood.cpp ./Engine/SpecialFood.cpp ./Engine/Tunnel.cpp -o PacmanDebug

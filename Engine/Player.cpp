@@ -4,14 +4,16 @@
 
 #include "Player.h"
 
-Player::Player( const sf::Vector2f & vector ) : DynamicObject( vector ) {
+Player::Player( const sf::Vector2f & vector, std::vector<Node*> & nodesVector ) : DynamicObject( vector, nodesVector ) {
 	setFillColor(sf::Color::Yellow);
 	lastWantedDirection = NONE;
+	spawnPoint = sf::Vector2f(39.f,39.f);
+	respawn();
 }
 
 
-void Player::move( std::vector<Node*> & nodes ){
-	Node * n = isInNode(nodes);
+void Player::move(){
+	Node * n = isInNode();
 	if ( n ){
 		setPosition( n -> getPosition() );
 		n -> visit();

@@ -11,7 +11,7 @@ float mod ( const float & x ){
 	else return x;
 }
 
-DynamicObject::DynamicObject( const sf::Vector2f & vector ) : RectangleShape ( vector ) {
+DynamicObject::DynamicObject( const sf::Vector2f & vector, std::vector<Node*> & nodesVector ) : RectangleShape ( vector ), nodes(nodesVector) {
 	setOrigin( sf::Vector2f( vector.x/2, vector.y/2 ) );
 	movement = NONE;
 	lastNode = nullptr;
@@ -32,7 +32,7 @@ void DynamicObject::changeMovement( const Direction & direction ){
 	else speed = sf::Vector2f( 0.f, 0.f );	
 }
 
-Node * DynamicObject::isInNode( std::vector<Node*> & nodes ){
+Node * DynamicObject::isInNode(){
 	float catchValue = 0.51*speedValue;
 	if ( movement == NONE && lastNode ) return lastNode;
 	else if ( lastNode ){
@@ -49,6 +49,8 @@ Node * DynamicObject::isInNode( std::vector<Node*> & nodes ){
 			  break;
 		 	case RIGHT:
 			  if (  lastNode -> right && mod ( getPosition().x - lastNode ->getNodeRight()-> getPosition().x ) < catchValue ) return lastNode = lastNode ->getNodeRight();
+			  break;
+			case NONE:
 			  break;
 		}
 		return nullptr;
@@ -77,4 +79,8 @@ Node * DynamicObject::isInNode( std::vector<Node*> & nodes ){
 		}
 	}
 	return nullptr;
+}
+
+void DynamicObject::respawn(){
+	setPosition( spawnPoint );
 }

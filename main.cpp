@@ -7,12 +7,17 @@
 #include "Engine/BigFood.h"
 #include "Engine/SpecialFood.h"
 #include "Engine/Tunnel.h"
+#include "Engine/Ghost.h"
+#include "Engine/Blinky.h"
+#include "Engine/Pinky.h"
 #include <iostream>
+#include <ctime>
 
 const int Distance = 23; 
 
 int main()
 {
+	srand( time( NULL ) );
 	sf::RenderWindow window(sf::VideoMode(1600, 900), "Pacman");
 	std::vector<Node*> nodes;
 	std::vector<SmallFood*> smallFoods;
@@ -20,13 +25,25 @@ int main()
 	std::vector<SpecialFood*> specialFoods;
 	std::vector<Tunnel*> tunnels;
 	std::vector<DynamicObject*> dynamicObjects;
+	std::vector<Ghost*> ghosts;
 	NodesGenerator generator( nodes, smallFoods, bigFoods, specialFoods, tunnels, sf::Vector2f(15.f,15.f));
 
 	Player * player;
+	Ghost * ghost;
 	DynamicObject * dynamicObject;
-	dynamicObject = player = new Player(sf::Vector2f(9.f, 9.f));
-	player ->setPosition(39, 39);
-	dynamicObjects.push_back(dynamicObject);	
+	dynamicObject = player = new Player(sf::Vector2f(9.f, 9.f), nodes );
+	dynamicObjects.push_back(dynamicObject);
+
+	dynamicObject = ghost = new Blinky(sf::Vector2f(9.f, 9.f), nodes, player, &tunnels );
+	dynamicObjects.push_back(dynamicObject);
+	ghosts.push_back(ghost);
+	ghost -> setPosition( sf::Vector2f( 39.f, 39.f ) );
+
+	dynamicObject = ghost = new Pinky(sf::Vector2f(9.f, 9.f), nodes, player, &tunnels );
+	dynamicObjects.push_back(dynamicObject);
+	ghosts.push_back(ghost);
+	ghost -> setPosition( sf::Vector2f( 39.f, 39.f ) );		
+	
 
 	tunnels[0] -> objects = dynamicObjects;
 	tunnels[1] -> objects = dynamicObjects;
@@ -46,11 +63,16 @@ int main()
         	}
 		
         	window.clear();
-		player ->move(nodes);
+		for ( Ghost * n : ghosts ){
+        		n ->move();
+		}
+		player ->move();
 		for ( Node * n : nodes ){
 			window.draw(*n);
 		}
-        	window.draw(*player);
+		for ( DynamicObject * n : dynamicObjects ){
+        		window.draw(*n);
+		}
         	window.display();
 	}
 	

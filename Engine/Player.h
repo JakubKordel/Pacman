@@ -8,15 +8,19 @@
 #include "Node.h"
 #include "DynamicObject.h"
 
-class Player : public DynamicObject {
-	
+class Blinky;
+class Pinky;
 
+class Player : public DynamicObject {
+
+friend class Blinky;
+friend class Pinky;
 
 public:
 
 	Direction lastWantedDirection;
-	Player( const sf::Vector2f & vector );
-	void move( std::vector<Node*> & nodes ); 
+	Player( const sf::Vector2f & vector, std::vector<Node*> & nodesVector );
+	void move( ); 
 };
 
 

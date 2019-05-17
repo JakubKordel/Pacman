@@ -19,17 +19,17 @@ public:
 	enum Direction { UP, DOWN, LEFT, RIGHT, NONE };
 
 protected:
+	std::vector<Node*> & nodes;
 	Direction movement; 
-	sf::Vector2f speed;
 	float speedValue; // > 0 
-
- 	Node * isInNode( std::vector<Node*> & nodes );
+	sf::Vector2f speed;
+ 	Node * isInNode();
 	Node * lastNode;
-public:
-	DynamicObject( const sf::Vector2f & vector );
+	sf::Vector2f spawnPoint;
+	DynamicObject( const sf::Vector2f & vector, std::vector<Node*> & nodesVector );
 	void move(); 	
 	void changeMovement( const Direction & direction );
-	
+	void respawn();
 };
 
 
