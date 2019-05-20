@@ -15,7 +15,7 @@ DynamicObject::DynamicObject( const sf::Vector2f & vector, std::vector<Node*> & 
 	setOrigin( sf::Vector2f( vector.x/2, vector.y/2 ) );
 	movement = NONE;
 	lastNode = nullptr;
-	speedValue = 0.15;
+	speedValue = 2;
 	speed = sf::Vector2f(0.f, 0.f);
 }
 	

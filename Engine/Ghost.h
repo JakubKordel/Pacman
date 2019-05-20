@@ -19,15 +19,19 @@ public:
 
 	State state;
 
-public:
 	Player * player;
 	std::vector<Tunnel*> * tunnels;
 	bool isInCage;
+	size_t timeInCage;
 
+	int randomization; // < 100
 	sf::Vector2f positionInCage;
 	Ghost ( const sf::Vector2f & vector, std::vector<Node*> & nodesVector, Player * playerPointer, std::vector<Tunnel*> * tunnels );
 	virtual void move ( ){}
+	void respawn();
 	void randomMove();
+	void huntMoveLikeBlinky();
+	void huntMoveLikePinky();
 	void escapeMove();
 	void goToCage();
 	int playerPosition(); //   2 1 0

@@ -8,13 +8,16 @@
 #include "Food.h"
 #include <SFML/Graphics.hpp>
 
+class GameManager;
+
 class SmallFood : public Food {
 
 public:
 	SmallFood( sf::Vector2f vector, bool u, bool d, bool l, bool r );
 
 	void visit();
-
+	GameManager * game;
+	
 };
 
 

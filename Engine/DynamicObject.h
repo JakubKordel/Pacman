@@ -10,10 +10,12 @@
 #include "Node.h"
 
 class Tunnel;
+class GameManager;
 
 class DynamicObject : public sf::RectangleShape {
 
 friend class Tunnel;
+friend class GameManager;
 
 public:
 	enum Direction { UP, DOWN, LEFT, RIGHT, NONE };
@@ -29,6 +31,7 @@ protected:
 	DynamicObject( const sf::Vector2f & vector, std::vector<Node*> & nodesVector );
 	void move(); 	
 	void changeMovement( const Direction & direction );
+public:
 	void respawn();
 };
 

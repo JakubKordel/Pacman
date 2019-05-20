@@ -8,13 +8,11 @@
 #include "Node.h"
 #include "DynamicObject.h"
 
-class Blinky;
-class Pinky;
+class Ghost;
 
 class Player : public DynamicObject {
 
-friend class Blinky;
-friend class Pinky;
+friend class Ghost;
 
 public:
 

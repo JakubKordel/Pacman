@@ -7,7 +7,7 @@
 Node::Node ( sf::Vector2f vector, bool u, bool d, bool l, bool r) : RectangleShape( sf::Vector2f(3, 3) ) , up(u), down(d), left(l), right(r) {
 	setOrigin(sf::Vector2f(2,2) );
 	setPosition( vector );
-	setFillColor( sf::Color::White );
+	setFillColor( sf::Color::Black );
 }
 
 Node * Node::getNodeUp(){

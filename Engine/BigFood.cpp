@@ -12,7 +12,7 @@ BigFood::BigFood( sf::Vector2f vector, bool u, bool d, bool l, bool r ) : Food( 
 
 void BigFood::visit(){
 	if ( !isEaten ){
-		setFillColor( sf::Color::White );
+		setFillColor( sf::Color::Black );
 		isEaten = true;
 	}
 }

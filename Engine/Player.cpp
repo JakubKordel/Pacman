@@ -7,8 +7,9 @@
 Player::Player( const sf::Vector2f & vector, std::vector<Node*> & nodesVector ) : DynamicObject( vector, nodesVector ) {
 	setFillColor(sf::Color::Yellow);
 	lastWantedDirection = NONE;
-	spawnPoint = sf::Vector2f(39.f,39.f);
+	spawnPoint = sf::Vector2f(339.f, 567.f);
 	respawn();
+	changeMovement(LEFT);
 }
 
 
