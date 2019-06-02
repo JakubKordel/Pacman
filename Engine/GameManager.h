@@ -11,7 +11,6 @@
 #include "Player.h"
 #include "NodesGenerator.h"
 #include "SmallFood.h"
-#include "Food.h"
 #include "BigFood.h"
 #include "SpecialFood.h"
 #include "Tunnel.h"
@@ -27,7 +26,7 @@
 class GameManager{
 
 public:
-	enum GameState { BEFOREROUND, RANDOM, HUNT, ESCAPE, ENDING, LOST };
+	enum GameState { BEFOREROUND, RANDOM, HUNT, ESCAPE, ENDING, LOST, WON, LIFELOST };
 	unsigned int level;
 	size_t points;
 	unsigned int lifes;
@@ -70,6 +69,8 @@ public:
 	void startEscape();
 	void startEnding();
 	void moveGhosts();
+	void resetPositions();
+	void resetFoods();
 };
 
 

@@ -6,6 +6,7 @@
 
 Ghost::Ghost ( const sf::Vector2f & vector, std::vector<Node*> & nodesVector, Player * playerPointer, std::vector<Tunnel*> * tunnelsVector ) : DynamicObject(vector, nodesVector) {
 	setFillColor(sf::Color::Red);
+	lastWantedDirection = NONE;
 	player = playerPointer;
 	tunnels = tunnelsVector;
 	spawnPoint = sf::Vector2f(339.f, 279.f);
@@ -18,6 +19,8 @@ Ghost::Ghost ( const sf::Vector2f & vector, std::vector<Node*> & nodesVector, Pl
 
 void Ghost::goToCage(){
 	setPosition( positionInCage );
+	speedValue = 2.0;
+	lastNode = nullptr;
 	isInCage = true;
 	timeInCage = 0;
 }
@@ -1406,6 +1409,26 @@ int Ghost::playerPosition(){
 		if ( player -> getPosition().x < getPosition().x ) return 4;
 		else if ( player -> getPosition().x > getPosition().x ) return 6;
 		else return 5;
+	}
+}
+
+void Ghost::reverseMovement(){
+	switch ( movement ){
+		case UP:
+		  changeMovement( DOWN );
+		  break;
+		case DOWN:
+		  changeMovement( UP );
+		  break;
+		case LEFT:
+		  changeMovement( RIGHT );
+		  break;
+		case RIGHT:
+		  changeMovement( LEFT );
+		  break;
+		case NONE:
+		  changeMovement( NONE );
+		  break;
 	}
 }
 

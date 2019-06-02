@@ -11,14 +11,15 @@ Tunnel::Tunnel( sf::Vector2f vector, bool u, bool d, bool l, bool r ) : Node( ve
 void Tunnel::visit(){
 	for ( DynamicObject * object : objects ){
 		if ( object ->getPosition() == getPosition() ){
-			if ( direction == DynamicObject::LEFT ){
-				object ->setPosition( getNodeLeft() -> getPosition() + sf::Vector2f(-1,0) );
+			if ( direction == DynamicObject::LEFT && object ->lastWantedDirection != DynamicObject::RIGHT && object ->movement == DynamicObject::LEFT ){
+				object ->setPosition( getNodeLeft() -> getPosition() );
 				object ->lastNode = getNodeLeft();
 			}
-			else if ( direction == DynamicObject::RIGHT ){
-				object ->setPosition( getNodeRight() -> getPosition() + sf::Vector2f(1,0) );
+			else if ( direction == DynamicObject::RIGHT && object ->lastWantedDirection != DynamicObject::LEFT && object ->movement == DynamicObject::RIGHT){
+				object ->setPosition( getNodeRight() -> getPosition() );
 				object ->lastNode = getNodeRight();
 			}
+			
 		}
 	}
 }

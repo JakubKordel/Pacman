@@ -28,6 +28,7 @@ public:
 	sf::Vector2f positionInCage;
 	Ghost ( const sf::Vector2f & vector, std::vector<Node*> & nodesVector, Player * playerPointer, std::vector<Tunnel*> * tunnels );
 	virtual void move ( ){}
+	void reverseMovement();
 	void respawn();
 	void randomMove();
 	void huntMoveLikeBlinky();

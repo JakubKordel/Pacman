@@ -8,6 +8,8 @@
 #include "Node.h"
 #include <SFML/Graphics.hpp>
 
+class GameManager;
+
 class Food : public Node {
 
 protected:
@@ -15,6 +17,7 @@ protected:
 
 public:
 	Food( sf::Vector2f vector, bool u, bool d, bool l, bool r );
+	GameManager * game;
 };
 
 

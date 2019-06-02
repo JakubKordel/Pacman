@@ -33,6 +33,7 @@ protected:
 	void changeMovement( const Direction & direction );
 public:
 	void respawn();
+	Direction lastWantedDirection;
 };
 
 

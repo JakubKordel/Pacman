@@ -16,7 +16,6 @@ friend class Ghost;
 
 public:
 
-	Direction lastWantedDirection;
 	Player( const sf::Vector2f & vector, std::vector<Node*> & nodesVector );
 	void move( ); 
 };

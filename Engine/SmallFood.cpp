@@ -3,6 +3,7 @@
 //
 
 #include "SmallFood.h"
+#include "GameManager.h"
 
 SmallFood::SmallFood( sf::Vector2f vector, bool u, bool d, bool l, bool r ) : Food( vector, u, d, l, r )  {
 	setFillColor( sf::Color::White );
@@ -10,7 +11,14 @@ SmallFood::SmallFood( sf::Vector2f vector, bool u, bool d, bool l, bool r ) : Fo
 
 void SmallFood::visit(){
 	if ( !isEaten ){
+		--game ->foodLeft;
+		game ->points += 10;
 		setFillColor( sf::Color::Black );
 		isEaten = true;
 	}
+}
+
+void SmallFood::reset(){
+	setFillColor( sf::Color::White );
+	isEaten = false;
 }

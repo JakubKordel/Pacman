@@ -12,8 +12,9 @@ GameManager::GameManager( ){
 	points = 0;
 	foodNum = 0;
 	inCageTime = 180;
-	huntTime = 2700;
-	randomTime = 900;
+	huntTime = 540;
+	randomTime = 660;
+	escapeTime = 660;
 
 	NodesGenerator generator( nodes, smallFoods, bigFoods, specialFoods, tunnels, sf::Vector2f(15.f,15.f));
 	DynamicObject * dynamicObject;
@@ -69,7 +70,8 @@ Ghost * GameManager::isPlayerGhostCollision(){
 
 void GameManager::action(){
 	++stateTimer;
-	if ( state != BEFOREROUND ) {
+	if ( foodLeft == 0 ) state = WON;
+	if ( state != BEFOREROUND && state != LIFELOST ) {
 		for ( Ghost * g : ghosts ){
 			if ( g -> isInCage ) {
 				++g -> timeInCage;
@@ -80,24 +82,44 @@ void GameManager::action(){
 	
 	if ( state == BEFOREROUND ){
 		if ( isStartWanted ) startRound();
-	} else if ( state == RANDOM && !isPlayerGhostCollision() ){
-		moveGhosts();
+	} else if ( state == RANDOM && !isPlayerGhostCollision()){
 		player -> move();
+		moveGhosts();
 		if ( stateTimer == randomTime ) startHunt();
 	}else if ( state == HUNT && !isPlayerGhostCollision()) {
-		moveGhosts();
 		player -> move();
+		moveGhosts();
 		if ( stateTimer == huntTime ) startRandom();
 	} else if ( state == ESCAPE ) {
-
-
-
+		player -> move();
+		moveGhosts();
+		Ghost * g = isPlayerGhostCollision();
+		if ( g && g ->state == Ghost::ESCAPE ) {
+			g -> goToCage();
+			points += 40;		
+		}
+		if ( stateTimer == escapeTime ) startRandom();
 	} else if ( state == ENDING ){
 
 
 	} else if ( state == LOST ){
 
 
+	} else if ( state == WON ){
+		isStartWanted = false;
+		resetPositions();
+		resetFoods();
+		state = BEFOREROUND;	
+	} else if ( isPlayerGhostCollision() ) {
+		--lifes;
+		if ( lifes ) {
+			resetPositions();
+			state = LIFELOST;
+			isStartWanted = false;
+		}
+		else state = LOST;
+	} else if ( state == LIFELOST && isStartWanted ){
+		startRandom();
 	}
 }
 
@@ -108,6 +130,9 @@ void GameManager::startRound(){
 	clyde -> timeInCage = 0.75 * inCageTime - 1;
 	pinky ->timeInCage = 0.5*inCageTime - 1;
 	blinky ->timeInCage = 0.25*inCageTime - 1;
+	huntTime += 60;
+	if ( randomTime > 61 ) randomTime -= 60;
+	if ( escapeTime > 61 ) escapeTime -= 60;
 }
 
 
@@ -115,6 +140,7 @@ void GameManager::startHunt(){
 	state = HUNT;
 	for ( Ghost * g : ghosts ){
 		g -> state = Ghost::HUNT;
+		g -> speedValue = 2.0;
 	}
 	stateTimer = 0;
 }
@@ -123,6 +149,7 @@ void GameManager::startRandom(){
 	state = RANDOM;
 	for ( Ghost * g : ghosts ){
 		g -> state = Ghost::RANDOM;
+		g -> speedValue = 2.0;
 	}
 	stateTimer = 0;
 }
@@ -131,6 +158,8 @@ void GameManager::startEscape(){
 	state = ESCAPE;
 	for ( Ghost * g : ghosts ){
 		g -> state = Ghost::ESCAPE;
+		g -> speedValue = 1.5;
+		g -> reverseMovement();
 	}
 	stateTimer = 0;
 }
@@ -139,6 +168,7 @@ void GameManager::startEnding(){
 	state = ENDING;
 	for ( Ghost * g : ghosts ){
 		g -> state = Ghost::HUNT;
+		g -> speedValue = 2.0;
 	}
 	blinky -> speedValue = 2.09;
 	stateTimer = 0;
@@ -147,6 +177,22 @@ void GameManager::startEnding(){
 void GameManager::moveGhosts(){
 	for ( Ghost * g : ghosts )
 		if ( !g -> isInCage ) g ->move();
+}
+
+void GameManager::resetPositions(){
+	for ( Ghost * g : ghosts ) g -> goToCage();
+	inky -> timeInCage = inCageTime - 1;
+	clyde -> timeInCage = 0.75 * inCageTime - 1;
+	pinky ->timeInCage = 0.5*inCageTime - 1;
+	blinky ->timeInCage = 0.25*inCageTime - 1;
+	player ->respawn();
+	player -> changeMovement(DynamicObject::LEFT);
+}
+
+void GameManager::resetFoods(){
+	for ( SmallFood * f : smallFoods ) f -> reset();
+	for ( BigFood * f : bigFoods ) f -> reset();
+	foodLeft = foodNum;
 }
 
 

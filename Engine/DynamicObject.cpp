@@ -83,4 +83,5 @@ Node * DynamicObject::isInNode(){
 
 void DynamicObject::respawn(){
 	setPosition( spawnPoint );
+	lastNode = nullptr;
 }
