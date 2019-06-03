@@ -56,7 +56,7 @@ GameManager.o: ./Engine/GameManager.cpp ./Engine/GameManager.h
 	g++ -c $(CFLAGS) ./Engine/GameManager.cpp
 
 debug: 
-	g++ -g $(CFLAGS) $(SFML) main.cpp ./Engine/Node.cpp ./Engine/DynamicObject.cpp ./Engine/Player.cpp ./Engine/NodesGenerator.cpp WallsGenerator.cpp ./Engine/Food.cpp ./Engine/SmallFood.cpp ./Engine/BigFood.cpp ./Engine/SpecialFood.cpp ./Engine/Tunnel.cpp ./Engine/Ghost.cpp ./Engine/Blinky.cpp ./Engine/Pinky.cpp ./Engine/Clyde.cpp ./Engine/Inky.cpp ./Engine/GameManager.cpp -o PacmanDebug
+	g++ $(CFLAGS) $(SFML) main.cpp ./Engine/Node.cpp ./Engine/DynamicObject.cpp ./Engine/Player.cpp ./Engine/NodesGenerator.cpp WallsGenerator.cpp ./Engine/Food.cpp ./Engine/SmallFood.cpp ./Engine/BigFood.cpp ./Engine/SpecialFood.cpp ./Engine/Tunnel.cpp ./Engine/Ghost.cpp ./Engine/Blinky.cpp ./Engine/Pinky.cpp ./Engine/Clyde.cpp ./Engine/Inky.cpp ./Engine/GameManager.cpp -o PacmanDebug
 	
 
 
