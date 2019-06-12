@@ -10,6 +10,7 @@
 
 class GameManager;
 
+/// Reprezentuje węzły na mapie, które po odwiedzeniu przez gracza zostają 'zjedzone'
 class Food : public Node {
 
 protected:

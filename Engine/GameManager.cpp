@@ -101,9 +101,10 @@ void GameManager::action(){
 		if ( stateTimer == escapeTime ) startRandom();
 	} else if ( state == ENDING ){
 
+		//TODO//
 
 	} else if ( state == LOST ){
-
+		if ( isStartWanted ) reset();	
 
 	} else if ( state == WON ){
 		isStartWanted = false;
@@ -112,12 +113,15 @@ void GameManager::action(){
 		state = BEFOREROUND;	
 	} else if ( isPlayerGhostCollision() ) {
 		--lifes;
+		isStartWanted = false;
 		if ( lifes ) {
 			resetPositions();
 			state = LIFELOST;
-			isStartWanted = false;
 		}
-		else state = LOST;
+		else { 
+			state = LOST;
+			
+		}
 	} else if ( state == LIFELOST && isStartWanted ){
 		startRandom();
 	}
@@ -193,6 +197,20 @@ void GameManager::resetFoods(){
 	for ( SmallFood * f : smallFoods ) f -> reset();
 	for ( BigFood * f : bigFoods ) f -> reset();
 	foodLeft = foodNum;
+}
+
+void GameManager::reset(){
+	resetPositions();
+	resetFoods();
+	isStartWanted = false;
+	state = BEFOREROUND;
+	level = 0;
+	lifes = 3;
+	points = 0;
+	inCageTime = 180;
+	huntTime = 540;
+	randomTime = 660;
+	escapeTime = 660;
 }
 
 

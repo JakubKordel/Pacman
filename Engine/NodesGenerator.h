@@ -12,12 +12,13 @@
 #include "Tunnel.h"
 #include <SFML/Graphics.hpp>
 
-
+///Generuje mape węzłów ( zwykłe węzły, jedzienie i teleportujący tunel )
 class NodesGenerator {
 	const int rows;
 	const int collumns;
 	const int distance;
-	int **tab; 
+	int **tab; /// Przechowuje schemat mapy
+	/// Inicializuje tablice tab
 	void initializeMapScheme();
 public:
 	NodesGenerator( std::vector<Node*> & nodes, std::vector<SmallFood*> & smallFoods, std::vector<BigFood*> & bigFoods, std::vector<SpecialFood*> & specialFoods, 

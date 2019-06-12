@@ -1,0 +1,148 @@
+\hypertarget{classDynamicObject}{}\section{Dynamic\+Object Class Reference}
+\label{classDynamicObject}\index{Dynamic\+Object@{Dynamic\+Object}}
+
+
+Klasa reprezentująca obiekty poruszające się od węzła do węzła.  
+
+
+
+
+{\ttfamily \#include $<$Dynamic\+Object.\+h$>$}
+
+
+
+Inheritance diagram for Dynamic\+Object\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{classDynamicObject__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Dynamic\+Object\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{classDynamicObject__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDynamicObject_a30add874b8507ddd3469e5f9144e8a58}\label{classDynamicObject_a30add874b8507ddd3469e5f9144e8a58}} 
+enum {\bfseries Direction} \{ \newline
+{\bfseries UP}, 
+{\bfseries D\+O\+WN}, 
+{\bfseries L\+E\+FT}, 
+{\bfseries R\+I\+G\+HT}, 
+\newline
+{\bfseries N\+O\+NE}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDynamicObject_a81829b0b8ee1c8f1b7836522ffa41080}\label{classDynamicObject_a81829b0b8ee1c8f1b7836522ffa41080}} 
+void \hyperlink{classDynamicObject_a81829b0b8ee1c8f1b7836522ffa41080}{respawn} ()
+\begin{DoxyCompactList}\small\item\em Metoda ustawia obiekt w punkcie określonym przez atrybut spawn\+Point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDynamicObject_ac3934eeb8931556f9dce6d988ab00c6e}\label{classDynamicObject_ac3934eeb8931556f9dce6d988ab00c6e}} 
+Direction {\bfseries last\+Wanted\+Direction}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNode}{Node} $\ast$ \hyperlink{classDynamicObject_af121dbd6d880bf772494ae251e272693}{is\+In\+Node} ()
+\begin{DoxyCompactList}\small\item\em Sprawdza czy obiekt znajduje się w węźle. \end{DoxyCompactList}\item 
+\hyperlink{classDynamicObject_a5e007abd09c1a213c913ec0dbf11be7a}{Dynamic\+Object} (const sf\+::\+Vector2f \&vector, std\+::vector$<$ \hyperlink{classNode}{Node} $\ast$$>$ \&nodes\+Vector)
+\begin{DoxyCompactList}\small\item\em Inicjalizuje obiekt dynamiczny. \end{DoxyCompactList}\item 
+void \hyperlink{classDynamicObject_a9fb1ce835d8c4ffe0a3ffd799067be9a}{move} ()
+\begin{DoxyCompactList}\small\item\em Metoda przesuwa obiekt. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDynamicObject_aba876e4dabfefa89c00b9926108216dc}\label{classDynamicObject_aba876e4dabfefa89c00b9926108216dc}} 
+void \hyperlink{classDynamicObject_aba876e4dabfefa89c00b9926108216dc}{change\+Movement} (const Direction \&direction)
+\begin{DoxyCompactList}\small\item\em Metoda ustawia atrybut movement. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDynamicObject_af5b2bd3854bed73057d1e13fd23a138e}\label{classDynamicObject_af5b2bd3854bed73057d1e13fd23a138e}} 
+std\+::vector$<$ \hyperlink{classNode}{Node} $\ast$ $>$ \& \hyperlink{classDynamicObject_af5b2bd3854bed73057d1e13fd23a138e}{nodes}
+\begin{DoxyCompactList}\small\item\em Zbiór węzłów na mapie. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDynamicObject_a97ec96a61e89872abd56017739638ca0}\label{classDynamicObject_a97ec96a61e89872abd56017739638ca0}} 
+Direction \hyperlink{classDynamicObject_a97ec96a61e89872abd56017739638ca0}{movement}
+\begin{DoxyCompactList}\small\item\em kierunek następnego ruchu obiektu \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDynamicObject_aa6a2b1fc0fdfae2ea1b6612638dec4af}\label{classDynamicObject_aa6a2b1fc0fdfae2ea1b6612638dec4af}} 
+float {\bfseries speed\+Value}
+\item 
+\mbox{\Hypertarget{classDynamicObject_adeb1429f88acc030da655f902e300eda}\label{classDynamicObject_adeb1429f88acc030da655f902e300eda}} 
+sf\+::\+Vector2f {\bfseries speed}
+\item 
+\mbox{\Hypertarget{classDynamicObject_a777c530472f9ce9d76e3b77c4ce0a8a7}\label{classDynamicObject_a777c530472f9ce9d76e3b77c4ce0a8a7}} 
+\hyperlink{classNode}{Node} $\ast$ {\bfseries last\+Node}
+\item 
+\mbox{\Hypertarget{classDynamicObject_a21a010faebd39dffd380d72398db8521}\label{classDynamicObject_a21a010faebd39dffd380d72398db8521}} 
+sf\+::\+Vector2f {\bfseries spawn\+Point}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDynamicObject_a8ec4a0482122250d43ff5a0eecc335c8}\label{classDynamicObject_a8ec4a0482122250d43ff5a0eecc335c8}} 
+class {\bfseries Tunnel}
+\item 
+\mbox{\Hypertarget{classDynamicObject_a140a2a29511147897abbb772733f6c2c}\label{classDynamicObject_a140a2a29511147897abbb772733f6c2c}} 
+class {\bfseries Game\+Manager}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Klasa reprezentująca obiekty poruszające się od węzła do węzła. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDynamicObject_a5e007abd09c1a213c913ec0dbf11be7a}\label{classDynamicObject_a5e007abd09c1a213c913ec0dbf11be7a}} 
+\index{Dynamic\+Object@{Dynamic\+Object}!Dynamic\+Object@{Dynamic\+Object}}
+\index{Dynamic\+Object@{Dynamic\+Object}!Dynamic\+Object@{Dynamic\+Object}}
+\subsubsection{\texorpdfstring{Dynamic\+Object()}{DynamicObject()}}
+{\footnotesize\ttfamily Dynamic\+Object\+::\+Dynamic\+Object (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2f \&}]{vector,  }\item[{std\+::vector$<$ \hyperlink{classNode}{Node} $\ast$$>$ \&}]{nodes\+Vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Inicjalizuje obiekt dynamiczny. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & określa położenie obiektu \\
+\hline
+{\em nodes\+Vector} & wektor przechowujący wskaźniki na wszystkie węzły z planszy \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classDynamicObject_af121dbd6d880bf772494ae251e272693}\label{classDynamicObject_af121dbd6d880bf772494ae251e272693}} 
+\index{Dynamic\+Object@{Dynamic\+Object}!is\+In\+Node@{is\+In\+Node}}
+\index{is\+In\+Node@{is\+In\+Node}!Dynamic\+Object@{Dynamic\+Object}}
+\subsubsection{\texorpdfstring{is\+In\+Node()}{isInNode()}}
+{\footnotesize\ttfamily \hyperlink{classNode}{Node} $\ast$ Dynamic\+Object\+::is\+In\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Sprawdza czy obiekt znajduje się w węźle. 
+
+Jeśli obiekt znajduje się w węźle, metoda zwraca wskaźnik na ten węzeł. Jeśli obiekt nie znajduje się w węźle, zwracany jest wskaźnik nullptr \mbox{\Hypertarget{classDynamicObject_a9fb1ce835d8c4ffe0a3ffd799067be9a}\label{classDynamicObject_a9fb1ce835d8c4ffe0a3ffd799067be9a}} 
+\index{Dynamic\+Object@{Dynamic\+Object}!move@{move}}
+\index{move@{move}!Dynamic\+Object@{Dynamic\+Object}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Dynamic\+Object\+::move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Metoda przesuwa obiekt. 
+
+Metoda przesuwa obiekt o pewną ilość pikseli określoną przez wartość atrybutu speed\+Value, w kierunku określonym przez wartość atrybutu movement. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Engine/Dynamic\+Object.\+h\item 
+Engine/Dynamic\+Object.\+cpp\end{DoxyCompactItemize}

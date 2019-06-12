@@ -1,0 +1,4 @@
+<map id="Player" name="Player">
+<area shape="rect" id="node2" href="$classDynamicObject.html" title="Klasa reprezentująca obiekty poruszające się od węzła do węzła. " alt="" coords="47,171,159,197"/>
+<area shape="rect" id="node4" href="$classNode.html" title="Reprezentuje węzel. Pewny punkt na mapie. " alt="" coords="149,81,202,108"/>
+</map>

@@ -8,12 +8,14 @@
 #include "Ghost.h"
 #include <cmath>
 
+/// Jeden z duszków 
 class Clyde : public Ghost {
 
 	void huntMove();
 
 public:
 	Clyde ( const sf::Vector2f & vector, std::vector<Node*> & nodesVector, Player * playerPointer, std::vector<Tunnel*> * tunnelsVector );
+	///Wykonuje ruch duszka zgodnie z jego taktyką
 	void move();	
 };
 

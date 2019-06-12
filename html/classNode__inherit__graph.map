@@ -1,0 +1,7 @@
+<map id="Node" name="Node">
+<area shape="rect" id="node3" href="$classFood.html" title="Reprezentuje węzły na mapie, które po odwiedzeniu przez gracza zostają &#39;zjedzone&#39;. " alt="" coords="117,155,167,181"/>
+<area shape="rect" id="node7" href="$classTunnel.html" title="Reprezentuje węzeł, który przenosi odwiedzający go obiekt do drugiego tunelu. " alt="" coords="191,155,253,181"/>
+<area shape="rect" id="node4" href="$classBigFood.html" title="Reprezentuje grube jedzenie, przeznaczone do zjedzenia przez gracza. " alt="" coords="5,229,76,256"/>
+<area shape="rect" id="node5" href="$classSmallFood.html" title="Reprezentuje mały obiekt do zjedzenia przez gracza. " alt="" coords="100,229,184,256"/>
+<area shape="rect" id="node6" href="$classSpecialFood.html" title="TODO. " alt="" coords="208,229,303,256"/>
+</map>

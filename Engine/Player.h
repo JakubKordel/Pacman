@@ -9,7 +9,7 @@
 #include "DynamicObject.h"
 
 class Ghost;
-
+/// reprezentuje gracza poruszającego się po mapie
 class Player : public DynamicObject {
 
 friend class Ghost;
@@ -17,6 +17,11 @@ friend class Ghost;
 public:
 
 	Player( const sf::Vector2f & vector, std::vector<Node*> & nodesVector );
+	/// Wykonuje ruch gracza
+	/**
+	Wykonuje ruch gracza w kierunku określonym przez dziedziczony atrybut lastWantedDirection.
+	Jeśli ruch jest niemożliwy, gracz nie wykonuje ruchu.
+	*/ 
 	void move( ); 
 };
 

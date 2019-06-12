@@ -9,6 +9,7 @@
 #include <SFML/Graphics.hpp>
 #include "DynamicObject.h"
 
+/// Reprezentuje węzeł, który przenosi odwiedzający go obiekt do drugiego tunelu. 
 class Tunnel : public Node {
 
 public:
@@ -17,6 +18,7 @@ public:
 	std::vector<DynamicObject*> objects;
 
 	DynamicObject::Direction direction ;
+	/// Przenosi obiekty znajdujące sie w tym węźle do drugiego tunelu
 	void visit();
 };
 

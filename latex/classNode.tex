@@ -1,0 +1,101 @@
+\hypertarget{classNode}{}\section{Node Class Reference}
+\label{classNode}\index{Node@{Node}}
+
+
+Reprezentuje węzel. Pewny punkt na mapie.  
+
+
+
+
+{\ttfamily \#include $<$Node.\+h$>$}
+
+
+
+Inheritance diagram for Node\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{classNode__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Node\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{classNode__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNode_a691046668b01fa3af260a3891c993f99}{Node} (sf\+::\+Vector2f vector, bool u, bool d, bool l, bool r)
+\item 
+\mbox{\Hypertarget{classNode_a7cb557af2f8c31fa43fc4c75134750e8}\label{classNode_a7cb557af2f8c31fa43fc4c75134750e8}} 
+virtual void \hyperlink{classNode_a7cb557af2f8c31fa43fc4c75134750e8}{visit} ()
+\begin{DoxyCompactList}\small\item\em Funkcja wywoływana przez obiekty wchodzące do węzła. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNode_a3076b2ad2aa24bad4d7989c40ed0c78c}\label{classNode_a3076b2ad2aa24bad4d7989c40ed0c78c}} 
+\hyperlink{classNode}{Node} $\ast$ \hyperlink{classNode_a3076b2ad2aa24bad4d7989c40ed0c78c}{get\+Node\+Up} ()
+\begin{DoxyCompactList}\small\item\em Zwraca wskaźnik na sąsiadujący węzeł z góry. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNode_a9f1fb40744611d9bf3c6bce26b3c6b25}\label{classNode_a9f1fb40744611d9bf3c6bce26b3c6b25}} 
+\hyperlink{classNode}{Node} $\ast$ \hyperlink{classNode_a9f1fb40744611d9bf3c6bce26b3c6b25}{get\+Node\+Down} ()
+\begin{DoxyCompactList}\small\item\em Zwraca wskaźnik na sąsiadujący węzeł z dołu. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNode_a1d337ac51fa169f1d282d97f34caa2e7}\label{classNode_a1d337ac51fa169f1d282d97f34caa2e7}} 
+\hyperlink{classNode}{Node} $\ast$ \hyperlink{classNode_a1d337ac51fa169f1d282d97f34caa2e7}{get\+Node\+Left} ()
+\begin{DoxyCompactList}\small\item\em Zwraca wskaźnik na sąsiadujący węzeł z lewej. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNode_a3a10a1a2f045b29f38d2258e40d06160}\label{classNode_a3a10a1a2f045b29f38d2258e40d06160}} 
+\hyperlink{classNode}{Node} $\ast$ \hyperlink{classNode_a3a10a1a2f045b29f38d2258e40d06160}{get\+Node\+Right} ()
+\begin{DoxyCompactList}\small\item\em Zwraca wskaźnik na sąsiadujący węzeł z prawej. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNode_a27f215e6d295a677f2ad702ca2083001}\label{classNode_a27f215e6d295a677f2ad702ca2083001}} 
+const bool {\bfseries up}
+\item 
+\mbox{\Hypertarget{classNode_a71977171a0abc49390c0c7a7976d4a84}\label{classNode_a71977171a0abc49390c0c7a7976d4a84}} 
+const bool {\bfseries down}
+\item 
+\mbox{\Hypertarget{classNode_a6c681f5bc130c9da117cfc0b79d39403}\label{classNode_a6c681f5bc130c9da117cfc0b79d39403}} 
+const bool {\bfseries left}
+\item 
+\mbox{\Hypertarget{classNode_ae205eb30fb98f214e47c1ca986d0b4d1}\label{classNode_ae205eb30fb98f214e47c1ca986d0b4d1}} 
+const bool {\bfseries right}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNode_ab3dcf7a71a5faa0435fdf9db8d28f7f7}\label{classNode_ab3dcf7a71a5faa0435fdf9db8d28f7f7}} 
+class {\bfseries Nodes\+Generator}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Reprezentuje węzel. Pewny punkt na mapie. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNode_a691046668b01fa3af260a3891c993f99}\label{classNode_a691046668b01fa3af260a3891c993f99}} 
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\subsubsection{\texorpdfstring{Node()}{Node()}}
+{\footnotesize\ttfamily Node\+::\+Node (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{vector,  }\item[{bool}]{u,  }\item[{bool}]{d,  }\item[{bool}]{l,  }\item[{bool}]{r }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & reprezentuje położenie węzła \\
+\hline
+{\em u} & posiadanie górnego sąsiada \\
+\hline
+{\em d} & posiadanie dolnego sąsiada \\
+\hline
+{\em l} & posiadanie lewego sąsiada \\
+\hline
+{\em r} & posiadanie prawego sąsiada \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Engine/Node.\+h\item 
+Engine/Node.\+cpp\end{DoxyCompactItemize}

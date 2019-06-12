@@ -1,0 +1,6 @@
+<map id="Food" name="Food">
+<area shape="rect" id="node4" href="$classBigFood.html" title="Reprezentuje grube jedzenie, przeznaczone do zjedzenia przez gracza. " alt="" coords="5,229,76,256"/>
+<area shape="rect" id="node5" href="$classSmallFood.html" title="Reprezentuje mały obiekt do zjedzenia przez gracza. " alt="" coords="100,229,184,256"/>
+<area shape="rect" id="node6" href="$classSpecialFood.html" title="TODO. " alt="" coords="208,229,303,256"/>
+<area shape="rect" id="node2" href="$classNode.html" title="Reprezentuje węzel. Pewny punkt na mapie. " alt="" coords="115,80,169,107"/>
+</map>

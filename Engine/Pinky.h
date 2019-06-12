@@ -7,12 +7,14 @@
 
 #include "Ghost.h"
 
+/// Jeden z duszków 
 class Pinky : public Ghost {
 
 	void huntMove();
 
 public:
 	Pinky ( const sf::Vector2f & vector, std::vector<Node*> & nodesVector, Player * playerPointer, std::vector<Tunnel*> * tunnelsVector );
+	///Wykonuje ruch duszka zgodnie z jego taktyką
 	void move();	
 };
 

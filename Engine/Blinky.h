@@ -7,12 +7,14 @@
 
 #include "Ghost.h"
 
+/// Jeden z duszków 
 class Blinky : public Ghost {
 
 	void huntMove();
 
 public:
 	Blinky ( const sf::Vector2f & vector, std::vector<Node*> & nodesVector, Player * playerPointer, std::vector<Tunnel*> * tunnelsVector );
+	///Wykonuje ruch duszka zgodnie z jego taktyką
 	void move();	
 };
 
