@@ -1,4 +1,0 @@
-<map id="Blinky" name="Blinky">
-<area shape="rect" id="node2" href="$classGhost.html" title="Reprezentuje duszka poruszającego się w tunelach. " alt="" coords="36,155,93,181"/>
-<area shape="rect" id="node3" href="$classDynamicObject.html" title="Klasa reprezentująca obiekty poruszające się od węzła do węzła. " alt="" coords="9,80,121,107"/>
-</map>

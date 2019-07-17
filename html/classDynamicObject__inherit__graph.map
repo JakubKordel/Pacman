@@ -1,8 +1,0 @@
-<map id="DynamicObject" name="DynamicObject">
-<area shape="rect" id="node3" href="$classGhost.html" title="Reprezentuje duszka poruszającego się w tunelach. " alt="" coords="125,155,182,181"/>
-<area shape="rect" id="node8" href="$classPlayer.html" title="reprezentuje gracza poruszającego się po mapie " alt="" coords="207,155,265,181"/>
-<area shape="rect" id="node4" href="$classBlinky.html" title="Jeden z duszków. " alt="" coords="5,229,64,256"/>
-<area shape="rect" id="node5" href="$classClyde.html" title="Jeden z duszków. " alt="" coords="88,229,144,256"/>
-<area shape="rect" id="node6" href="$classInky.html" title="Jeden z duszków. " alt="" coords="169,229,215,256"/>
-<area shape="rect" id="node7" href="$classPinky.html" title="Jeden z duszków. " alt="" coords="239,229,294,256"/>
-</map>

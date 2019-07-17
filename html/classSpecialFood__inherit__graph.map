@@ -1,4 +1,0 @@
-<map id="SpecialFood" name="SpecialFood">
-<area shape="rect" id="node2" href="$classFood.html" title="Reprezentuje węzły na mapie, które po odwiedzeniu przez gracza zostają &#39;zjedzone&#39;. " alt="" coords="49,155,99,181"/>
-<area shape="rect" id="node3" href="$classNode.html" title="Reprezentuje węzel. Pewny punkt na mapie. " alt="" coords="47,80,101,107"/>
-</map>
